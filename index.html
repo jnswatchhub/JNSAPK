@@ -1,4 +1,5 @@
 <html><head><base href="https://jnswatchhub.github.io/jns/">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <style>
     :root {
         --primary-color: #e50914;
@@ -8,32 +9,31 @@
         --highlight: #ff181f;
     }
 
-        body {
-            margin: 0;
-            padding: 10px; /* Reduced from 20px */
-            min-height: 100vh;
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(45deg, #000000, #1a0f0f, #141414);
-            color: var(--text-color);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    body {
+        margin: 0;
+        padding: 10px;
+        min-height: 100vh;
+        font-family: 'Inter', sans-serif;
+        background: linear-gradient(45deg, #000000, #1a0f0f, #141414);
+        color: var(--text-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-
-        .container {
-            width: 95%; /* Increased from 90% */
-            max-width: 800px;
-            padding: 1rem; /* Reduced from 2rem */
-            text-align: center;
-            background: rgba(20, 20, 20, 0.95);
-            border-radius: 20px;
-            box-shadow: 0 0 30px rgba(229, 9, 20, 0.1);
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(229, 9, 20, 0.1);
-        }
-
+    .container {
+        width: 100%;
+        max-width: none;
+        padding: 0.5rem;
+        margin: 0 auto;
+        text-align: center;
+        background: rgba(20, 20, 20, 0.95);
+        border-radius: 20px;
+        box-shadow: 0 0 30px rgba(229, 9, 20, 0.1);
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(229, 9, 20, 0.1);
+    }
 
     .stars {
         position: absolute;
@@ -43,23 +43,23 @@
     }
 
     h1 {
-        font-size: clamp(1.2rem, 4vw, 2rem); /* Adjusted size range */
-        margin-bottom: 1rem; /* Reduced from 2rem */
+        font-size: clamp(1.8rem, 6vw, 2.5rem);
+        margin-bottom: 1rem;
         color: var(--highlight);
         text-shadow: 0 0 10px rgba(255, 24, 31, 0.3);
         font-weight: 600;
         letter-spacing: 2px;
     }
 
-        .step {
-            margin: 1rem 0; /* Reduced from 2rem */
-            padding: 1rem; /* Reduced from 1.5rem */
-            background: var(--accent-color);
-            border-radius: 15px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid rgba(229, 9, 20, 0.1);
-        }
-
+    .step {
+        margin: 0.5rem 0;
+        padding: 1rem;
+        background: var(--accent-color);
+        border-radius: 15px;
+        transition: transform 0.3s, box-shadow 0.3s;
+        border: 1px solid rgba(229, 9, 20, 0.1);
+        font-size: 1.2rem;
+    }
 
     .step:hover {
         transform: scale(1.02);
@@ -96,25 +96,25 @@
     h2 {
         color: var(--highlight);
         font-weight: 500;
-        font-size: clamp(1rem, 2.5vw, 1.3rem); /* Adjusted size range */
-        margin-bottom: 0.5rem; /* Reduced from 1rem */
+        font-size: clamp(1.4rem, 4vw, 1.8rem);
+        margin-bottom: 0.5rem;
     }
 
     p {
         color: var(--text-color);
-        line-height: 1.4; /* Reduced from 1.6 */
-        font-size: clamp(0.8rem, 2vw, 0.9rem); /* Slightly smaller */
-        margin: 0.5rem 0; /* Added to reduce space */
+        line-height: 1.4;
+        font-size: clamp(1rem, 3vw, 1.2rem);
+        margin: 0.5rem 0;
     }
 
     .url-box {
         background: var(--secondary-color);
-        padding: 0.75rem; /* Reduced from 1rem */
+        padding: 1rem;
         border-radius: 4px;
-        margin: 0.75rem 0; /* Reduced from 1rem */
+        margin: 1rem 0;
         border: 1px solid rgba(229, 9, 20, 0.1);
         color: var(--text-color);
-        font-size: clamp(0.7rem, 1.8vw, 0.9rem); /* Adjusted size */
+        font-size: clamp(1rem, 3vw, 1.2rem);
         word-break: break-all;
         cursor: pointer;
     }
@@ -131,15 +131,15 @@
         color: white;
         border: 1px solid rgba(229, 9, 20, 0.3);
         border-radius: 20px;
-        padding: 8px 16px;
-        font-size: 0.85em;
+        padding: 1rem;
+        font-size: 1.1rem;
         cursor: pointer;
         transition: all 0.3s;
         margin-top: 10px;
         display: inline-flex;
         align-items: center;
         text-decoration: none;
-        min-width: 200px;
+        min-width: 90%;
     }
 
     .download-brave:hover {
@@ -155,26 +155,24 @@
     }
 
     .brave-button {
-        background: linear-gradient(45deg, #e50914, #ff0000); /* Changed to Netflix-style red gradient */
+        background: linear-gradient(45deg, #e50914, #ff0000);
         border: none;
-        border-radius: 30px; /* Increased roundness */
+        border-radius: 30px;
         color: white;
         cursor: pointer;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-        font-size: 16px; /* Increased font size */
+        font-size: clamp(1.2rem, 4vw, 1.4rem);
         font-weight: bold;
-        padding: 15px 30px; /* Increased padding */
+        padding: 1.2rem;
         position: relative;
         transition: transform 0.3s, box-shadow 0.3s;
-        margin: 20px auto 25px; /* Adjusted margins */
+        margin: 1rem auto;
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: fit-content;
-        min-width: 240px; /* Slightly increased to fit new text */
-        max-width: 90%;
-        text-transform: uppercase; /* Make text uppercase */
-        letter-spacing: 1px; /* Add letter spacing */
+        width: 90%;
+        text-transform: uppercase;
+        letter-spacing: 1px;
     }
 
     .brave-button:hover {
@@ -184,7 +182,7 @@
     }
 
     .brave-button svg {
-        width: 20px; /* Increased icon size */
+        width: 20px;
         height: 20px;
         margin-right: 10px;
         flex-shrink: 0;
@@ -192,30 +190,33 @@
 
     @media (max-width: 600px) {
         body {
-            padding: 5px; /* Reduced padding */
+            padding: 0;
         }
         
         .container {
-            padding: 0.75rem;
-            width: 98%; /* Increased from 95% */
+            width: 100%;
+            border-radius: 0;
+            padding: 0.5rem;
         }
         
         .step {
-            padding: 0.75rem; /* Reduced from 1rem */
-            margin: 0.75rem 0; /* Reduced from 1rem */
+            margin: 0.5rem 0;
+            border-radius: 10px;
         }
 
         .brave-button {
-            padding: 12px 24px;
-            min-width: 200px;
-            font-size: 14px;
-            margin: 15px auto 20px;
+            width: 95%;
+            padding: 1.5rem;
         }
-        
-        .brave-button svg {
-            width: 18px;
-            height: 18px;
-            margin-right: 8px;
+
+        .download-brave-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .download-brave {
+            width: 95%;
+            margin: 0.5rem 0;
         }
     }
 </style>
@@ -242,17 +243,16 @@
     <div class="step">
         <h2>Step 1: Access JNS Watch Hub</h2>
         <p>Enter this URL in Brave Browser:</p>
-        <p style="color: #ff9f1c; font-size: 0.9em; margin: 10px 0;">
+        <p style="color: #ff9f1c; font-size: 1.2rem; margin: 10px 0;">
             Download Brave Browser to watch and enjoy non-ads movie marathon
         </p>
         <a href="https://jnswatchhub.github.io/jns/" class="brave-button" id="openLink">
-
             <svg viewBox="0 0 24 24" fill="white">
                 <path d="M15.68 0l2.096 2.38s1.84-.512 2.709.358c.868.87 1.584 1.638 1.584 1.638l-.562 1.381.715 2.047s-2.104 7.98-2.35 8.955c-.486 1.919-.716 2.736-2.402 3.725-1.687.988-5.903 3.36-6.67 3.516-.766.156-2.068.156-2.834 0-.766-.157-4.982-2.528-6.67-3.516-1.685-.989-1.915-1.806-2.401-3.725-.246-.975-2.35-8.955-2.35-8.955l.715-2.047-.562-1.381s.716-.768 1.584-1.638c.869-.87 2.709-.358 2.709-.358L3.598 0h12.083zm-6.49 18.434c-.383-.065-.839-.192-1.366-.375.681.246 1.366.31 1.366.375zm6.67-10.251c-.246.403-1.627 2.201-1.75 2.458-.067.141-.43.324-.467.685-.037.361.356.902.356 1.263 0 .36-.049.876-.086 1.018-.037.141-.765 1.05-1.031 1.412-.265.361-.395 1.184-.524 1.184s-2.656.036-2.881.036c-.226 0-.419-.287-.47-.287-.05 0-1.108.433-1.75.433s-1.701-.433-1.75-.433c-.052 0-.245.287-.47.287-.226 0-2.753-.036-2.881-.036-.13 0-.26-.823-.525-1.184-.266-.361-.994-1.27-1.031-1.412-.037-.142-.086-.657-.086-1.018 0-.361.393-.902.356-1.263-.037-.36-.4-.544-.467-.685-.123-.257-1.504-2.055-1.75-2.458-.245-.404-.209-1.388-.096-1.424.114-.037 1.53-.438 2.084-.545.555-.108 1.976-.793 2.358-.793.38 0 .86.155 1.177.155.318 0 .553-.39.682-.39.13 0 1.108.899 1.287.899.178 0 1.157-.899 1.287-.899.13 0 .364.39.682.39.317 0 .798-.155 1.177-.155.382 0 1.803.685 2.358.793.555.107 1.97.508 2.084.545.113.036.149 1.02-.096 1.424zm-3.478 7.282c.13.194-.356.388-.356.388.058.173 1.177.15 1.303.107.127-.043.242-.346.47-.346s.617.519.715.519c.096 0 .096-.268.096-.268s-.715-.642-.908-.685c-.193-.043-1.32.285-1.32.285zm-6.384 0c-.13.194.356.388.356.388-.058.173-1.177.15-1.303.107-.127-.043-.242-.346-.47-.346s-.617.519-.715.519c-.096 0-.096-.268-.096-.268s.715-.642.908-.685c.193-.043 1.32.285 1.32.285zm.947-8.61c-.438.337-1.132.889-1.317 1.126-.185.238-.543.932-.636 1.17-.094.238-.636.725-.452 1.208.185.483.359.501.544.762.138.194.196.501.266.671.034.083.12.234.337.234l2.036-.068c.172 0 .489-.234.489-.234V9.104c0-.167-.217-.234-.217-.234l-.947-.113s-.073-.1-.103-.1zm4.87 0c.438.337 1.132.889 1.317 1.126.185.238.543.932.636 1.17.094.238.636.725.452 1.208-.185.483-.359.501-.544.762-.138.194-.196.501-.266.671-.034.083-.12.234-.337.234l-2.036-.068c-.172 0-.489-.234-.489-.234V9.104c0-.167.217-.234.217-.234l.947-.113s.073-.1.103-.1z"/>
             </svg>
             Watch Movie Here
         </a>
-        <span style="display: block; font-size: 0.8em; margin-top: 8px; color: #808080;">Watch in Mobile</span>
+        <span style="display: block; font-size: 1em; margin-top: 8px; color: #808080;">Watch in Mobile</span>
         <div class="url-box" id="copyUrl">
             https://jnswatchhub.github.io/jns/
             <span style="display: block; font-size: 0.8em; margin-top: 5px; color: #808080;">(Click to copy)</span>
@@ -359,7 +359,6 @@
         }
     }
 
-    // Check if Facebook browser and handle accordingly
     if (isFacebookBrowser()) {
         openInChrome();
     } else if (!isChromiumBased()) {
@@ -367,7 +366,6 @@
         window.location.href = 'https://www.google.com/chrome/';
     }
 
-    // Handle mobile Brave button
     if (isMobile) {
         const braveButton = document.querySelector('.brave-button');
         if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
