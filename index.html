@@ -1,0 +1,321 @@
+<html><head><base href="https://jnswatchhub.github.io/jns/">
+  <style>
+      :root {
+          --primary-color: #e50914;
+          --secondary-color: #141414;
+          --accent-color: #1f1f1f;
+          --text-color: #ffffff;
+          --highlight: #ff181f;
+      }
+  
+      body {
+          margin: 0;
+          padding: 20px;
+          min-height: 100vh;
+          font-family: 'Inter', sans-serif;
+          background: linear-gradient(45deg, #000000, #1a0f0f, #141414);
+          color: var(--text-color);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+  
+      .container {
+          width: 90%;
+          max-width: 800px;
+          padding: 2rem;
+          text-align: center;
+          background: rgba(20, 20, 20, 0.95);
+          border-radius: 20px;
+          box-shadow: 0 0 30px rgba(229, 9, 20, 0.1);
+          position: relative;
+          overflow: hidden;
+          border: 1px solid rgba(229, 9, 20, 0.1);
+      }
+  
+      .stars {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+      }
+  
+      h1 {
+          font-size: clamp(1.5rem, 5vw, 2.5rem);
+          margin-bottom: 2rem;
+          color: var(--highlight);
+          text-shadow: 0 0 10px rgba(255, 24, 31, 0.3);
+          font-weight: 600;
+          letter-spacing: 2px;
+      }
+  
+      .step {
+          margin: 2rem 0;
+          padding: 1.5rem;
+          background: var(--accent-color);
+          border-radius: 15px;
+          transition: transform 0.3s, box-shadow 0.3s;
+          border: 1px solid rgba(229, 9, 20, 0.1);
+      }
+  
+      .step:hover {
+          transform: scale(1.02);
+          box-shadow: 0 0 20px rgba(229, 9, 20, 0.1);
+      }
+  
+      .btn {
+          display: inline-block;
+          padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem);
+          background: linear-gradient(45deg, var(--primary-color), #ff0000);
+          color: white;
+          text-decoration: none;
+          border-radius: 4px;
+          font-weight: bold;
+          margin: 1rem;
+          transition: all 0.3s;
+          box-shadow: 0 0 15px rgba(229, 9, 20, 0.2);
+          border: none;
+          font-size: clamp(0.9rem, 2vw, 1rem);
+      }
+  
+      .btn:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 0 25px rgba(229, 9, 20, 0.3);
+          background: linear-gradient(45deg, #ff0000, var(--primary-color));
+      }
+  
+      @keyframes twinkle {
+          0% { opacity: 0.3; }
+          50% { opacity: 1; }
+          100% { opacity: 0.3; }
+      }
+  
+      h2 {
+          color: var(--highlight);
+          font-weight: 500;
+          font-size: clamp(1.2rem, 3vw, 1.5rem);
+          margin-bottom: 1rem;
+      }
+  
+      p {
+          color: var(--text-color);
+          line-height: 1.6;
+          font-size: clamp(0.9rem, 2vw, 1rem);
+      }
+  
+      .url-box {
+          background: var(--secondary-color);
+          padding: 1rem;
+          border-radius: 4px;
+          margin: 1rem 0;
+          border: 1px solid rgba(229, 9, 20, 0.1);
+          color: var(--text-color);
+          font-size: clamp(0.8rem, 2vw, 1rem);
+          word-break: break-all;
+          cursor: pointer;
+      }
+  
+      .brave-button {
+          background: linear-gradient(45deg, #F5A623, #FF4D4D);
+          border: none;
+          border-radius: 25px;
+          color: white;
+          cursor: pointer;
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+          font-size: 16px;
+          font-weight: bold;
+          padding: 12px 24px;
+          position: relative;
+          transition: transform 0.2s, box-shadow 0.2s;
+          margin: 15px auto;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: fit-content;
+          min-width: 200px;
+          max-width: 80%;
+      }
+  
+      .brave-button:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 15px rgba(245, 166, 35, 0.3);
+      }
+  
+      .brave-button svg {
+          width: 20px;
+          height: 20px;
+          margin-right: 8px;
+          flex-shrink: 0;
+      }
+  
+      @media (max-width: 600px) {
+          body {
+              padding: 10px;
+          }
+          
+          .container {
+              padding: 1rem;
+          }
+          
+          .step {
+              padding: 1rem;
+          }
+  
+          .brave-button {
+              font-size: 14px;
+              padding: 10px 20px;
+              min-width: 180px;
+          }
+          
+          .brave-button svg {
+              width: 18px;
+              height: 18px;
+              margin-right: 6px;
+          }
+      }
+  </style>
+  </head>
+  <body>
+  
+  <div class="container">
+      <svg class="stars" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+          <script>
+              for(let i = 0; i < 150; i++) {
+                  const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                  circle.setAttribute("cx", Math.random() * 1000);
+                  circle.setAttribute("cy", Math.random() * 1000);
+                  circle.setAttribute("r", Math.random() * 1.5);
+                  circle.setAttribute("fill", `rgb(255, ${220 + Math.random() * 35}, ${220 + Math.random() * 35})`);
+                  circle.style.animation = `twinkle ${1 + Math.random() * 3}s infinite`;
+                  document.querySelector('.stars').appendChild(circle);
+              }
+          </script>
+      </svg>
+  
+      <h1>🎬 JNS Watch Hub 🎬</h1>
+  
+      <div class="step">
+          <h2>Step 1: Access JNS Watch Hub</h2>
+          <p>Enter this URL in Brave Browser:</p>
+          <p style="color: #ff9f1c; font-size: 0.9em; margin: 10px 0;">
+              It is recommended to download Brave browser to enjoy non-ads movie marathon
+          </p>
+          <div class="url-box" id="copyUrl">
+              https://jnswatchhub.github.io/jns/
+              <span style="display: block; font-size: 0.8em; margin-top: 5px; color: #808080;">(Click to copy)</span>
+          </div>
+          <a href="https://jnswatchhub.github.io/jns/" class="brave-button" id="openLink">
+              <svg viewBox="0 0 24 24" fill="white">
+                  <path d="M15.68 0l2.096 2.38s1.84-.512 2.709.358c.868.87 1.584 1.638 1.584 1.638l-.562 1.381.715 2.047s-2.104 7.98-2.35 8.955c-.486 1.919-.716 2.736-2.402 3.725-1.687.988-5.903 3.36-6.67 3.516-.766.156-2.068.156-2.834 0-.766-.157-4.982-2.528-6.67-3.516-1.685-.989-1.915-1.806-2.401-3.725-.246-.975-2.35-8.955-2.35-8.955l.715-2.047-.562-1.381s.716-.768 1.584-1.638c.869-.87 2.709-.358 2.709-.358L3.598 0h12.083zm-6.49 18.434c-.383-.065-.839-.192-1.366-.375.681.246 1.366.31 1.366.375zm6.67-10.251c-.246.403-1.627 2.201-1.75 2.458-.067.141-.43.324-.467.685-.037.361.356.902.356 1.263 0 .36-.049.876-.086 1.018-.037.141-.765 1.05-1.031 1.412-.265.361-.395 1.184-.524 1.184s-2.656.036-2.881.036c-.226 0-.419-.287-.47-.287-.05 0-1.108.433-1.75.433s-1.701-.433-1.75-.433c-.052 0-.245.287-.47.287-.226 0-2.753-.036-2.881-.036-.13 0-.26-.823-.525-1.184-.266-.361-.994-1.27-1.031-1.412-.037-.142-.086-.657-.086-1.018 0-.361.393-.902.356-1.263-.037-.36-.4-.544-.467-.685-.123-.257-1.504-2.055-1.75-2.458-.245-.404-.209-1.388-.096-1.424.114-.037 1.53-.438 2.084-.545.555-.108 1.976-.793 2.358-.793.38 0 .86.155 1.177.155.318 0 .553-.39.682-.39.13 0 1.108.899 1.287.899.178 0 1.157-.899 1.287-.899.13 0 .364.39.682.39.317 0 .798-.155 1.177-.155.382 0 1.803.685 2.358.793.555.107 1.97.508 2.084.545.113.036.149 1.02-.096 1.424zm-3.478 7.282c.13.194-.356.388-.356.388.058.173 1.177.15 1.303.107.127-.043.242-.346.47-.346s.617.519.715.519c.096 0 .096-.268.096-.268s-.715-.642-.908-.685c-.193-.043-1.32.285-1.32.285zm-6.384 0c-.13.194.356.388.356.388-.058.173-1.177.15-1.303.107-.127-.043-.242-.346-.47-.346s-.617.519-.715.519c-.096 0-.096-.268-.096-.268s.715-.642.908-.685c.193-.043 1.32.285 1.32.285zm.947-8.61c-.438.337-1.132.889-1.317 1.126-.185.238-.543.932-.636 1.17-.094.238-.636.725-.452 1.208.185.483.359.501.544.762.138.194.196.501.266.671.034.083.12.234.337.234l2.036-.068c.172 0 .489-.234.489-.234V9.104c0-.167-.217-.234-.217-.234l-.947-.113s-.073-.1-.103-.1zm4.87 0c.438.337 1.132.889 1.317 1.126.185.238.543.932.636 1.17.094.238.636.725.452 1.208-.185.483-.359.501-.544.762-.138.194-.196.501-.266.671-.034.083-.12.234-.337.234l-2.036-.068c-.172 0-.489-.234-.489-.234V9.104c0-.167.217-.234.217-.234l.947-.113s.073-.1.103-.1z"/>
+              </svg>
+              Open in Brave Browser
+          </a>
+          <span style="display: block; font-size: 0.8em; margin-top: 8px; color: #808080;">Watch in Mobile</span>
+      </div>
+  
+      <div class="step">
+          <h2>Step 2: Register & Subscribe</h2>
+          <p>Create your account and subscribe to our premium service at the most competitive rates</p>
+      </div>
+  
+      <div class="step">
+          <h2>Step 3: Start Streaming</h2>
+          <p>Immerse yourself in premium entertainment 🎥</p>
+      </div>
+  </div>
+  
+  <script>
+      document.querySelectorAll('.stars circle').forEach(star => {
+          star.style.animation = `twinkle ${2 + Math.random() * 4}s infinite`;
+      });
+  
+      document.getElementById('copyUrl').addEventListener('click', function() {
+          navigator.clipboard.writeText('https://jnswatchhub.github.io/jns/').then(() => {
+              this.querySelector('span').textContent = '(Copied!)';
+              setTimeout(() => {
+                  this.querySelector('span').textContent = '(Click to copy)';
+              }, 2000);
+          });
+      });
+  
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  
+      function isChromiumBased() {
+          const userAgent = navigator.userAgent.toLowerCase();
+          return userAgent.includes('chrome') || userAgent.includes('brave');
+      }
+  
+      function isFacebookBrowser() {
+          const userAgent = navigator.userAgent.toLowerCase();
+          return userAgent.includes('fban') || userAgent.includes('fbav') || userAgent.includes('fb_iab') || userAgent.includes('fb_messenger');
+      }
+  
+      function openInChrome() {
+          const message = document.createElement('div');
+          message.style.cssText = `
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: rgba(0, 0, 0, 0.95);
+              padding: clamp(10px, 3vw, 30px);
+              z-index: 10000;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              text-align: center;
+          `;
+          message.innerHTML = `
+              <div style="
+                  max-width: 90%;
+                  padding: clamp(15px, 4vw, 30px);
+                  background: rgba(31, 31, 31, 0.9);
+                  border-radius: 15px;
+                  border: 1px solid rgba(229, 9, 20, 0.2);
+                  box-shadow: 0 0 20px rgba(229, 9, 20, 0.1);
+              ">
+              <p style="
+                  color: white;
+                  margin: clamp(10px, 3vw, 20px) 0;
+                  font-size: clamp(0.9rem, 3.5vw, 1.2rem);
+                  line-height: 1.8;
+                  font-family: 'Inter', sans-serif;
+                  padding: clamp(5px, 2vw, 15px);
+              ">
+                  This page can only be accessed through Chrome or Brave browser.<br><br>
+                  Please tap the three dots (⋮) in the top right corner and select "Open in Chrome"<br>
+                  or download Brave browser for the best ad-free experience.
+              </p>
+              </div>
+          `;
+          document.body.appendChild(message);
+          document.body.style.overflow = 'hidden';
+          
+          try {
+              window.location.href = 'intent://jnswatchhub.github.io/jns/#Intent;scheme=https;package=com.android.chrome;end';
+          } catch (e) {
+              console.error('Failed to open in Chrome:', e);
+          }
+      }
+  
+      // Check if Facebook browser and handle accordingly
+      if (isFacebookBrowser()) {
+          openInChrome();
+      } else if (!isChromiumBased()) {
+          alert('Please open this link in Chrome or Brave browser for the best experience.');
+          window.location.href = 'https://www.google.com/chrome/';
+      }
+  
+      // Handle mobile Brave button
+      if (isMobile) {
+          const braveButton = document.querySelector('.brave-button');
+          if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+              braveButton.href = 'brave://open-url?url=https://jnswatchhub.github.io/jns/';
+          } else {
+              braveButton.href = 'intent://jnswatchhub.github.io/jns/#Intent;scheme=https;package=com.brave.browser;end';
+          }
+      }
+  </script>
+  
+  </body></html>
